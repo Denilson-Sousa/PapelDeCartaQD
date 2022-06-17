@@ -119,13 +119,13 @@ class Aplicativo(tk.Tk):
         super().__init__()
 
 
-        self.geometry('510x270')
+        self.geometry('515x320')
         self.title('Emissão de papel de carta')
 
         self.resizable(0, 0)
 
         self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=3)
+        self.columnconfigure(1, weight=8)
 
         self.create_widgets()
 
@@ -140,32 +140,107 @@ class Aplicativo(tk.Tk):
         self.cargo = tk.StringVar()
         self.email = tk.StringVar()
 
-        opcoes={'padx':5, 'pady':5, 'ipadx':10, 'ipady':10}
+        self.estilo = ttk.Style()
+        self.estilo.theme_use('alt')
+        self.estilo.configure('TButton', font=('Helvetica', 10))
+        self.estilo.configure('TLabel', font=('Helvetica', 12))
+        self.estilo.configure('Heading.TLabel', font=('Helvetica', 16))
+        self.estilo.configure('TEntry', font=('Helvetica', 12))
 
-        nome_label = ttk.Label(self, text="Nome do colaborador: ")
-        nome_label.grid(column=0, row=0, sticky=tk.W, **opcoes)
+        opcoes={'padx':15, 'pady':5, 'ipadx':10, 'ipady':10}
 
-        nome_entrada = ttk.Entry(self, textvariable=self.nome, width=60)
-        nome_entrada.grid(column=1, row=0, sticky=tk.W, **opcoes)
+        titulo_pagina = ttk.Label(self, text="Informe os dados do colaborador",
+                                  font=('Helvetica', 16),
+                                  background='cyan',
+                                  padding=(20,2),
+                                  style='Heading.TLabel'
+                                  )
+        titulo_pagina.grid(column=0,
+                           columnspan=2,
+                           sticky=tk.N
+                           )
 
-        cargo_label = ttk.Label(self, text="Cargo: ")
-        cargo_label.grid(column=0, row=2, sticky=tk.W, **opcoes)
+        self.separador = ttk.Separator(self, orient='horizontal')
+        self.separador.grid(column=0, row=1, columnspan=2)
 
-        cargo_entrada = ttk.Entry(self, textvariable=self.cargo, width=60)
-        cargo_entrada.grid(column=1, row=2, sticky=tk.W, **opcoes)
+        nome_label = ttk.Label(self,
+                               text="Nome : ",
+                               style='TLabel',
+                               background="white")
+        nome_label.grid(column=0,
+                        row=4,
+                        sticky=tk.W,
+                        **opcoes)
 
-        email_label = ttk.Label(self, text="e-mail do colaborador: ")
-        email_label.grid(column=0, row=3, sticky=tk.W, **opcoes)
+        nome_entrada = ttk.Entry(self,
+                                 textvariable=self.nome,
+                                 width=100,
+                                 background="blue",
+                                 style='TEntry')
+        nome_entrada.grid(column=1,
+                          row=4,
+                          sticky=tk.W,
+                          **opcoes)
 
-        email_entrada = ttk.Entry(self, textvariable=self.email, width=60)
-        email_entrada.grid(column=1, row=3, sticky=tk.W, **opcoes)
+        cargo_label = ttk.Label(self,
+                                text="Cargo: ",
+                                style='TLabel',
+                                background="white")
+        cargo_label.grid(column=0,
+                         row=5,
+                         sticky=tk.W,
+                         **opcoes)
 
-        botao_enviar = ttk.Button(self, text='Enviar', command=lambda:self.dispara_envio())
-        botao_enviar.grid(column=3, row=5, sticky=tk.E, **opcoes)
+        cargo_entrada = ttk.Entry(self,
+                                  textvariable=self.cargo,
+                                  width=100,
+                                  style='TEntry')
+        cargo_entrada.grid(column=1,
+                           row=5,
+                           sticky=tk.W,
+                           **opcoes)
 
-        botao_fechar = ttk.Button(self, text='Fechar', command=lambda:self.encerra_aplicativo())
-        botao_fechar.grid(column=3, row=6, sticky=tk.E,  **opcoes)
+        email_label = ttk.Label(self,
+                                text="e-mail : ",
+                                style='TLabel',
+                                background="white")
+        email_label.grid(column=0,
+                         row=6,
+                         sticky=tk.W,
+                         **opcoes)
+
+        email_entrada = ttk.Entry(self,
+                                  textvariable=self.email,
+                                  width=100,
+                                  style='TEntry',
+                                  foreground='blue')
+        email_entrada.grid(column=1,
+                           row=6,
+                           sticky=tk.W,
+                           **opcoes)
+
+        botao_enviar = ttk.Button(self,
+                                  text='Enviar',
+                                  width=10,
+                                  style='TButton',
+                                  command=lambda:self.dispara_envio())
+        botao_enviar.grid(column=1,
+                          row=7,
+                          sticky=tk.E,
+                          **opcoes)
+
+        botao_fechar = ttk.Button(self,
+                                  text='Fechar',
+                                  width=10,
+                                  command=lambda:self.encerra_aplicativo())
+        botao_fechar.grid(column=1,
+                          row=8,
+                          sticky=tk.E,
+                          **opcoes)
 
 if __name__ == "__main__":
     aplicativo = Aplicativo()
     aplicativo.mainloop()
+
+
+

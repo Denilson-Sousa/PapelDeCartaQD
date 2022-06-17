@@ -109,11 +109,6 @@ def enviar_papel_carta(nome_informado, cargo_informado, email_informado):
     showinfo(title='Aviso', message='Papel de carta enviado')
     exit()
 
-
-# import tkinter as tk
-# from tkinter import ttk
-# from tkinter.messagebox import askokcancel, showinfo, WARNING
-
 class Aplicativo(tk.Tk):
     def __init__(self):
         super().__init__()

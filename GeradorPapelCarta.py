@@ -240,6 +240,7 @@ class Aplicativo(tk.Tk):
 
 if __name__ == "__main__":
     aplicativo = Aplicativo()
+    aplicativo.eval('tk::PlaceWindow . center')
     aplicativo.mainloop()
 
 

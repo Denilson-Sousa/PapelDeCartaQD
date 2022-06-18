@@ -7,6 +7,7 @@
 # Pedir o nome do colaborador e cargo
 
 import os
+import sys
 import win32com.client as win32
 import re
 import tkinter as tk
@@ -21,6 +22,10 @@ def enviar_papel_carta(nome_informado, cargo_informado, email_informado):
 
     Nome = nome_informado
     Cargo = cargo_informado
+
+    if (Nome == "" or Cargo == ""):
+        showinfo(title="Aviso", message='Preencha o Nome e Cargo')
+        return
 
     # Verifica se o endereço de e-mail é válido
 
@@ -37,6 +42,10 @@ def enviar_papel_carta(nome_informado, cargo_informado, email_informado):
 
 
     # Carrega o modelo de papel de carta e insere os dados do colaborador
+
+    if not (os.path.exists('.\Modelo.html')):
+        showinfo(title="Arquivo ausente", message="O arquivo Modelo.html não foi encontrado na pasta do aplicativo")
+        exit(-1)
 
     with open("Modelo.html", 'r') as ModeloBase:
         PapelUsuario = ModeloBase.read()
@@ -107,7 +116,7 @@ def enviar_papel_carta(nome_informado, cargo_informado, email_informado):
     os.remove(NomeAnexo)
 
     showinfo(title='Aviso', message='Papel de carta enviado')
-    exit()
+    #exit()
 
 class Aplicativo(tk.Tk):
     def __init__(self):
@@ -237,6 +246,6 @@ if __name__ == "__main__":
     aplicativo = Aplicativo()
     aplicativo.eval('tk::PlaceWindow . center')
     aplicativo.mainloop()
-
+    sys.exit()
 
 

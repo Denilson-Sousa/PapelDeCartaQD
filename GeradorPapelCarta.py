@@ -116,7 +116,6 @@ def enviar_papel_carta(nome_informado, cargo_informado, email_informado):
     os.remove(NomeAnexo)
 
     showinfo(title='Aviso', message='Papel de carta enviado')
-    #exit()
 
 class Aplicativo(tk.Tk):
     def __init__(self):

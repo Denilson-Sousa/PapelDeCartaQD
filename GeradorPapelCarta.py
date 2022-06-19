@@ -123,13 +123,14 @@ class Aplicativo(tk.Tk):
         super().__init__()
 
 
-        self.geometry('515x320')
+        self.geometry('515x260')
         self.title('Emissão de papel de carta')
 
         self.resizable(0, 0)
 
-        self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=8)
+        self.columnconfigure(0, weight=0)
+        self.columnconfigure(1, weight=4)
+        self.columnconfigure(2, weight=4)
 
         self.create_widgets()
 
@@ -160,12 +161,12 @@ class Aplicativo(tk.Tk):
                                   style='Heading.TLabel'
                                   )
         titulo_pagina.grid(column=0,
-                           columnspan=2,
+                           columnspan=4,
                            sticky=tk.N
                            )
 
         self.separador = ttk.Separator(self, orient='horizontal')
-        self.separador.grid(column=0, row=1, columnspan=2)
+        self.separador.grid(column=0, row=1, columnspan=3)
 
         nome_label = ttk.Label(self,
                                text="Nome : ",
@@ -182,6 +183,7 @@ class Aplicativo(tk.Tk):
                                  background="blue",
                                  style='TEntry')
         nome_entrada.grid(column=1,
+                          columnspan=4,
                           row=4,
                           sticky=tk.W,
                           **opcoes)
@@ -200,6 +202,7 @@ class Aplicativo(tk.Tk):
                                   width=100,
                                   style='TEntry')
         cargo_entrada.grid(column=1,
+                           columnspan=4,
                            row=5,
                            sticky=tk.W,
                            **opcoes)
@@ -219,6 +222,7 @@ class Aplicativo(tk.Tk):
                                   style='TEntry',
                                   foreground='blue')
         email_entrada.grid(column=1,
+                           columnspan=4,
                            row=6,
                            sticky=tk.W,
                            **opcoes)
@@ -228,7 +232,7 @@ class Aplicativo(tk.Tk):
                                   width=10,
                                   style='TButton',
                                   command=lambda:self.dispara_envio())
-        botao_enviar.grid(column=1,
+        botao_enviar.grid(column=2,
                           row=7,
                           sticky=tk.E,
                           **opcoes)
@@ -237,8 +241,8 @@ class Aplicativo(tk.Tk):
                                   text='Fechar',
                                   width=10,
                                   command=lambda:self.encerra_aplicativo())
-        botao_fechar.grid(column=1,
-                          row=8,
+        botao_fechar.grid(column=3,
+                          row=7,
                           sticky=tk.E,
                           **opcoes)
 

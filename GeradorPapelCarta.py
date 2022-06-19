@@ -43,9 +43,7 @@ def enviar_papel_carta(nome_informado, cargo_informado, email_informado):
 
     # Carrega o modelo de papel de carta e insere os dados do colaborador
 
-    if not (os.path.exists('.\Modelo.html')):
-        showinfo(title="Arquivo ausente", message="O arquivo Modelo.html não foi encontrado na pasta do aplicativo")
-        exit(-1)
+
 
     with open("Modelo.html", 'r') as ModeloBase:
         PapelUsuario = ModeloBase.read()
@@ -123,7 +121,7 @@ class Aplicativo(tk.Tk):
 
         self.geometry('515x260')
         self.title('Emissão de papel de carta')
-
+        self.iconphoto(False, tk.PhotoImage(file='./GeradorPapelCarta.png'))
         self.resizable(0, 0)
 
         self.columnconfigure(0, weight=0)
@@ -245,6 +243,11 @@ class Aplicativo(tk.Tk):
                           **opcoes)
 
 if __name__ == "__main__":
+
+    if not (os.path.exists('.\Modelo.html') or os.path.exists('.\GeradorPapelCarta.png')):
+        showinfo(title="Arquivo ausente", message="Um ou mais arquivos necesários não foram encontrados")
+        exit(-1)
+
     aplicativo = Aplicativo()
     aplicativo.eval('tk::PlaceWindow . center')
     aplicativo.mainloop()

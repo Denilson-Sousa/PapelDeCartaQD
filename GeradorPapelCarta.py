@@ -122,7 +122,6 @@ class Aplicativo(tk.Tk):
     def __init__(self):
         super().__init__()
 
-
         self.geometry('515x260')
         self.title('Emissão de papel de carta')
 

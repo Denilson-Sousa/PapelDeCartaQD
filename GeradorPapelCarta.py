@@ -119,10 +119,11 @@ class Aplicativo(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.geometry('515x260')
+        self.geometry('515x280')
         self.title('Emissão de papel de carta')
         self.iconphoto(False, tk.PhotoImage(file='./GeradorPapelCarta.png'))
         self.resizable(0, 0)
+        self.configure(background="grey")
 
         self.columnconfigure(0, weight=0)
         self.columnconfigure(1, weight=4)
@@ -134,7 +135,7 @@ class Aplicativo(tk.Tk):
         self.quit()
 
     def dispara_envio(self):
-        enviar_papel_carta(self.nome.get(), self.cargo.get(),self.email.get())
+        enviar_papel_carta(self.nome.get(), self.cargo.get(), self.email.get())
 
     def create_widgets(self):
         self.nome = tk.StringVar()
@@ -147,27 +148,38 @@ class Aplicativo(tk.Tk):
         self.estilo.configure('TLabel', font=('Helvetica', 12))
         self.estilo.configure('Heading.TLabel', font=('Helvetica', 16))
         self.estilo.configure('TEntry', font=('Helvetica', 12))
+        self.estilo.configure('red.TSeparator', background='red')
 
         opcoes={'padx':15, 'pady':5, 'ipadx':10, 'ipady':10}
 
         titulo_pagina = ttk.Label(self, text="Informe os dados do colaborador",
                                   font=('Helvetica', 16),
-                                  background='cyan',
-                                  padding=(20,2),
+                                  background='red',
+                                  foreground='white',
+                                  padding=(50,2),
                                   style='Heading.TLabel'
                                   )
         titulo_pagina.grid(column=0,
                            columnspan=4,
-                           sticky=tk.N
+                           sticky=tk.N,
+                           pady=10
                            )
 
-        self.separador = ttk.Separator(self, orient='horizontal')
-        self.separador.grid(column=0, row=1, columnspan=3)
+        self.separador = ttk.Separator(self,
+                                       orient='horizontal',
+                                       style='red.TSeparator'
+                                       )
+        self.separador.grid(column=0,
+                            row=1,
+                            columnspan=5,
+                            ipadx=255,
+                            pady=1
+                            )
 
         nome_label = ttk.Label(self,
                                text="Nome : ",
                                style='TLabel',
-                               background="white")
+                               background="grey")
         nome_label.grid(column=0,
                         row=4,
                         sticky=tk.W,
@@ -187,7 +199,7 @@ class Aplicativo(tk.Tk):
         cargo_label = ttk.Label(self,
                                 text="Cargo: ",
                                 style='TLabel',
-                                background="white")
+                                background="grey")
         cargo_label.grid(column=0,
                          row=5,
                          sticky=tk.W,
@@ -206,7 +218,7 @@ class Aplicativo(tk.Tk):
         email_label = ttk.Label(self,
                                 text="e-mail : ",
                                 style='TLabel',
-                                background="white")
+                                background="grey")
         email_label.grid(column=0,
                          row=6,
                          sticky=tk.W,

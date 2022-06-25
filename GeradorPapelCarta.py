@@ -40,11 +40,7 @@ def enviar_papel_carta(nome_informado, cargo_informado, email_informado):
         showinfo(title="Aviso", message='Endereço de e-mail inválido')
         return
 
-
     # Carrega o modelo de papel de carta e insere os dados do colaborador
-
-
-
     with open("Modelo.html", 'r') as ModeloBase:
         PapelUsuario = ModeloBase.read()
 
@@ -69,29 +65,19 @@ def enviar_papel_carta(nome_informado, cargo_informado, email_informado):
     Mail.Subject = "Configuração do Papel de Carta do Outlook"
 
     CorpoEmail = "Olá, " + Nome + """ <p><p>O arquivo anexado a esta mensagem é o seu papel de carta. Siga as instruções abaixo para configurar.</p></p>
-    
     <p> 
     Para configurar o papel de carta do Outlook
     </p>
-    
-     <blockquote>• Abra o outlook, clique em "arquivo", "opções", "email", "papéis de carta e fontes", "Tema". Mas não selecione nenhum ainda. Apenas clique uma vez em "cancelar";</blockquote>
-    
-     <blockquote>• Pressione Win+R e digite %appdata%\Microsoft\Stationery e pressione ENTER. Salve o seu papel de carta nesta pasta;</blockquote>
-    
-     <blockquote>• Retorne ao Outlook e clique em "tema" novamente e selecione o papel de carta com seu nome. Clique "Ok" até retornar para a tela principal do Outlook;</blockquote>
-    
+    <blockquote>• Abra o outlook, clique em "arquivo", "opções", "email", "papéis de carta e fontes", "Tema". Mas não selecione nenhum ainda. Apenas clique uma vez em "cancelar";</blockquote>
+    <blockquote>• Pressione Win+R e digite %appdata%\Microsoft\Stationery e pressione ENTER. Salve o seu papel de carta nesta pasta;</blockquote>
+    <blockquote>• Retorne ao Outlook e clique em "tema" novamente e selecione o papel de carta com seu nome. Clique "Ok" até retornar para a tela principal do Outlook;</blockquote>
     <br>
     <p>
     Para configurar o papel de carta em respostas/encaminhamentos
     </p>
-    
-    
-      <blockquote>• Crie uma mensagem de e-mail e não digite nada. Apenas selecione todo o conteúdo e copie;</blockquote>
-    
-      <blockquote>• Em seguida, clique em "arquivo", "opções", "email", "assinaturas". Clique no botão "novo", dê um nome para a assinatura e clique ok. No painel inferior da janela, clique e pressione CTRL+V;</blockquote>
-    
-      <blockquote>• Depois, em "respostas/encaminhamentos" (e apenas aí), selecione a assinatura que criou. Clique "ok" até retornar à tela principal.</blockquote>
-    
+    <blockquote>• Crie uma mensagem de e-mail e não digite nada. Apenas selecione todo o conteúdo e copie;</blockquote>
+    <blockquote>• Em seguida, clique em "arquivo", "opções", "email", "assinaturas". Clique no botão "novo", dê um nome para a assinatura e clique ok. No painel inferior da janela, clique e pressione CTRL+V;</blockquote>
+    <blockquote>• Depois, em "respostas/encaminhamentos" (e apenas aí), selecione a assinatura que criou. Clique "ok" até retornar à tela principal.</blockquote>
     <p><p>
     <b>Este email foi gerado automaticamente. Não responda.</b>
     </p></p>

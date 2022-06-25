@@ -20,7 +20,7 @@ executables = [
 
 setup(
     name = "PapelCarta",
-    version = "2.15",
+    version = "2.16",
     description = "Emissor de Papel de Carta",
     options = {"build_exe": build_exe_options},
     executables = executables

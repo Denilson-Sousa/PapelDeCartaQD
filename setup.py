@@ -26,4 +26,4 @@ setup(
     executables = executables
 )
 
-## Use: python .\setup.py build_exe
+## Para gerar o ."exe" Use: python .\setup.py build_exe

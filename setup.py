@@ -25,3 +25,5 @@ setup(
     options = {"build_exe": build_exe_options},
     executables = executables
 )
+
+## Use: python .\setup.py build_exe
